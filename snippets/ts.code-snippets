@@ -1,0 +1,104 @@
+{
+  "useFormFunction": {
+    "prefix": "useform",
+    "body": [
+      "export const use$1Form = () => {",
+      "\tconst formData = reactive({",
+      "\t\tname: \"\",",
+      "\t});",
+      "",
+      "\tconst defaultPager = () => ({",
+      "\t\tpageSize: 10,",
+      "\t\tpageNum: 1,",
+      "\t});",
+      "",
+      "\tconst pager = ref(defaultPager());",
+      "",
+      "\treturn {",
+      "\t\tformData, defaultPager, pager",
+      "\t};",
+      "};",
+      ""
+    ],
+    "description": "use form function"
+  },
+  "useTable": {
+    "prefix": "usetable",
+    "body": [
+      "// 表格",
+      "export const use$1Table = () => {",
+      "\tconst columns = ref<Array<TableColumnData & { slotRenderName?: string }>>([",
+      "\t\t{",
+      "\t\t\ttitle: \"ID\",",
+      "\t\t\tdataIndex: \"id\",",
+      "\t\t\tfixed: \"left\",",
+      "\t\t\twidth: 90,",
+      "\t\t},",
+      "\t\t{",
+      "\t\t\ttitle: \"操作\",",
+      "\t\t\twidth: 120,",
+      "\t\t\tfixed: \"right\",",
+      "\t\t\t// slotName: 'operate', 还不支持",
+      "\t\t\tslotRenderName: \"operate\",",
+      "\t\t},",
+      "\t]);",
+      "",
+      "\tconst tableRef = ref<TableInstance>();",
+      "",
+      "\treturn {",
+      "\t\tcolumns,",
+      "\t\ttableRef,",
+      "\t};",
+      "};",
+      ""
+    ],
+    "description": "use table"
+  },
+  "query header": {
+    "prefix": "aqueryh",
+    "body": [
+      "import { useQueryHeader } from \"@dangojs/a-query-header\";",
+      "",
+      "const { onSubmit, onReset, params } = useQueryHeader(formData, false);"
+    ],
+    "description": "query header"
+  },
+  "query table": {
+    "prefix": "aqueryt",
+    "body": [
+      "const { columns, tableRef } = use$1Table();",
+      "",
+      "const requestData = async (query: any) => {",
+      "\ttry {",
+      "\t\tconst res = await fetchTableData(formData, pager.value); //http.post('/ums/loupan/user/pageBy ', query);",
+      "",
+      "\t\treturn {",
+      "\t\t\tsuccess: res.success,",
+      "\t\t\tdata: res.data?.list ?? [],",
+      "\t\t\ttotal: res.data?.count ?? 0,",
+      "\t\t};",
+      "\t} catch (e) {}",
+      "};",
+      ""
+    ]
+  },
+  "commonUtil": {
+    "prefix": "commonutil",
+    "body": [
+      "import type { FormItemInstance, InputInstance } from '@arco-design/web-vue';",
+      "",
+      "export const commonFormItem: Partial<FormItemInstance> = {",
+      "\tshowColon: true,",
+      "};",
+      "",
+      "export const commonInput: Partial<InputInstance> = {",
+      "\tallowClear: true,",
+      "};",
+      "",
+      "export const commonStringTrim = (str: string) => {",
+      "\treturn str.trim();",
+      "};",
+      ""
+    ]
+  }
+}

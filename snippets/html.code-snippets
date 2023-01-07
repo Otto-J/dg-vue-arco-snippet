@@ -1,0 +1,84 @@
+{
+  "vueTemplateBase": {
+    "scope": "html",
+    "prefix": "vb",
+    "body": ["v-bind=\"$1\""],
+    "description": "vbind"
+  },
+  "el-form-item": {
+    "prefix": "efi",
+    "body": ["<el-form-item>$1</el-form-item>"],
+    "description": "form-item"
+  },
+
+  "pageContainer": {
+    "prefix": "apagec",
+    "body": [
+      "\t<PageContainer>",
+      "\t\t<a-card class=\"a-query-table-card\">",
+      "\t\t\t<template #title> ",
+      "\t\t\t\t<!-- aqueryform -->",
+      "\t\t\t</template>",
+      "\t\t\t<!-- aquerytable -->",
+      "\t\t</a-card>",
+      "\t</PageContainer>",
+      "\t<!-- a drawer -->",
+      ""
+    ],
+    "description": "page container"
+  },
+  "aqueryheader": {
+    "prefix": "aqueryh",
+    "body": [
+      "<a-query-header :model=\"formData\" @submit=\"onSubmit\" @reset=\"onReset\">",
+      "\t<a-form-item field=\"name\" label=\"名称\" v-bind=\"commonFormItem\">",
+      "\t\t<a-input v-model=\"formData.name\" v-bind=\"commonInput\" />",
+      "\t</a-form-item>",
+      "</a-query-header>"
+    ],
+    "description": "a query header"
+  },
+  "aformitemSelect": {
+    "prefix": "afis",
+    "body": [
+      "<a-form-item field=\"type\" label=\"类型\" v-bind=\"commonFormItem\">",
+      "\t<a-select v-model=\"formData.type\" placeholder=\"请选择\" allow-clear>",
+      "\t\t<a-option",
+      "\t\t\tv-for=\"item of [{id:1}]\"",
+      "\t\t\t:key=\"item.id\"",
+      "\t\t\t:label=\"item.id\"",
+      "\t\t\t:value=\"item.id\"",
+      "\t\t/>",
+      "\t</a-select>",
+      "</a-form-item>"
+    ],
+    "description": "a form item select"
+  },
+  "aquerytable": {
+    "prefix": "aqueryt",
+    "body": [
+      "\t\t<a-query-table",
+      "\t\t\tref=\"tableRef\"",
+      "\t\t\t:request=\"requestData\"",
+      "\t\t\t:columns=\"columns\"",
+      "\t\t\t:params=\"params\"",
+      "\t\t\thideOnePage",
+      "\t\t>",
+      "\t\t\t<template #operate=\"record\">",
+      "\t\t\t\t<a-space>",
+      "\t\t\t\t\t<a-button type=\"text\" @click=\"goDetail(record.id)\">查看</a-button>",
+      "\t\t\t\t</a-space>",
+      "\t\t\t</template>",
+      "\t\t</a-query-table>",
+      ""
+    ],
+    "description": "query table"
+  },
+  "adrawer": {
+    "prefix": "adrawer",
+    "body": [
+      "\t<table-drawer v-model:visible=\"tableDrawerConfig.visible\" v-model:id=\"tableDrawerConfig.id\" />",
+      ""
+    ]
+  }
+}

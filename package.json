@@ -3,6 +3,10 @@
   "displayName": "dg-vue-arco",
   "description": "dg vue3 arco snippet",
   "version": "0.0.2",
+  "scripts": {
+    "build": "vsce package",
+    "publish": "vsce publish"
+  },
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -15,11 +19,20 @@
       {
         "language": "vue",
         "path": "./snippets/vue.code-snippets"
+      },
+      {
+        "language": "html",
+        "path": "./snippets/html.code-snippets"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/ts.code-snippets"
       }
     ]
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Otto-J/dg-vue-arco-snippet.git"
-  }
+  },
+  "pricing": "Free"
 }
