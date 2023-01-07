@@ -6,7 +6,7 @@
   "scripts": {
     "prepublish": "npm run build",
     "version": "npm version patch",
-    "build": "npm run version && vsce package ",
+    "build": " vsce package ",
     "publish": "vsce publish"
   },
   "engines": {
