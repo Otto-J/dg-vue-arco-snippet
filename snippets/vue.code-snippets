@@ -1,0 +1,15 @@
+{
+  "vueTemplateBase": {
+    "scope": "vue",
+    "prefix": "vbase",
+    "body": [
+      "<template>",
+      "\t<div>$1</div>",
+      "</template>",
+      "<script lang=\"ts\" setup></script>",
+      "",
+      "<style></style>"
+    ],
+    "description": "vue template setup ts"
+  }
+}

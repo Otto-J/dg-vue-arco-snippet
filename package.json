@@ -1,0 +1,21 @@
+{
+  "name": "dg-vue-arco",
+  "displayName": "dg-vue-arco",
+  "description": "dg vue3 arco snippet",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "publisher": "OttoWebWorker",
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "vue",
+        "path": "./snippets/vue.code-snippets"
+      }
+    ]
+  }
+}
